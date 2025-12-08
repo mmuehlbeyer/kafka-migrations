@@ -1,0 +1,25 @@
+{
+    "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+    "name":"test_mirror",
+    "source.cluster.alias":"ONPREM",
+    "target.cluster.alias":"CC",
+    "topics":"demo",
+    "source.cluster.bootstrap.servers":"broker:29092",
+    "target.cluster.bootstrap.servers":"pkc-921jm.us-east-2.aws.confluent.cloud:9092",
+    "target.cluster.security.protocol":"SASL_SSL",
+    "target.cluster.sasl.mechanism":"PLAIN",
+    "target.cluster.sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username='TGRL4R4JGJWDOWZP' password='cfltG1AguEPOyMQhHzos4SvaC+yf2i2cr5VZly/XECWpA8tHAu0Q5F+e5HIzVdkA';",
+    "target.cluster.bootstrap.servers":"pkc-921jm.us-east-2.aws.confluent.cloud:9092",
+    "producer.override.bootstrap.servers":"pkc-921jm.us-east-2.aws.confluent.cloud:9092",
+    "producer.override.security.protocol":"SASL_SSL",
+    "producer.override.sasl.mechanism":"PLAIN",
+    "producer.override.sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username='TGRL4R4JGJWDOWZP' password='cfltG1AguEPOyMQhHzos4SvaC+yf2i2cr5VZly/XECWpA8tHAu0Q5F+e5HIzVdkA';",
+    "key.converter":"org.apache.kafka.connect.converters.ByteArrayConverter",
+    "value.converter":"org.apache.kafka.connect.converters.ByteArrayConverter",
+    "offset-syncs.topic.replication.factor":1,
+    "heartbeats.topic.replication.factor":1,
+    "checkpoints.topic.replication.factor":1,
+    "replication.policy.class": "org.apache.kafka.connect.mirror.IdentityReplicationPolicy"
+  }
+
+
