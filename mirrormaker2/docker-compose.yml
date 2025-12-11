@@ -46,7 +46,12 @@ services:
       KAFKA_CONFLUENT_TELEMETRY_EXPORTER_C3PLUSPLUS_BUFFER_INFLIGHT_SUBMISSIONS_MAX: "10"
       KAFKA_CONFLUENT_TELEMETRY_METRICS_COLLECTOR_INTERVAL_MS: "60000"
       KAFKA_CONFLUENT_TELEMETRY_REMOTECONFIG_CONFLUENT_ENABLED: "false"
-      KAFKA_CONFLUENT_CONSUMER_LAG_EMITTER_ENABLED: "true"      
+      KAFKA_CONFLUENT_CONSUMER_LAG_EMITTER_ENABLED: "true"
+    volumes:
+      - ./create-topics.sh:/home/appuser/create-topics.sh
+    post_start:
+      - command: ["sh", "-c", "/home/appuser/create-topics.sh"]             
+  
   schema-registry:
     image: confluentinc/cp-schema-registry:${CP_VERSION}
     container_name: schema-registry
